@@ -23,12 +23,12 @@ function App() {
               <MyCart/>
             </div>
           </div>
+          <div className="text-center">
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend
+            Mentor</a>.
+            Coded by <a href="https://github.com/oziriz31" className="text-amber-950 font-bold">Yvan Akoo</a>.
+          </div>
         </main>
-        <div className="text-center">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend
-          Mentor</a>.
-          Coded by <a href="https://github.com/oziriz31" className="text-amber-950 font-bold">Yvan Akoo</a>.
-        </div>
       </CartProvider>
     </ProductProvider>
   )
