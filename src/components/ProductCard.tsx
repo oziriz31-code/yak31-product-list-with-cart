@@ -44,7 +44,7 @@ function ProductCard({product}: ProductCardProps) {
             className="absolute cursor-pointer transition-all -bottom-5 left-1/4 py-2 px-2 rounded-full bg-white border border-amber-800 flex justify-center-safe space-x-2 w-1/2"
             onClick={handleAddToCart}
           >
-            <img src={imgAddToCard} alt="add to cart" className="w-5"/>
+            <img src={imgAddToCard} alt={`Add ${product.name} to cart`} className="w-5"/>
             <span className="font-semibold text-sm">Add to Cart</span>
           </button>
         )}
