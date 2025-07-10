@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import imgAddToCard from "../../public/assets/images/icon-add-to-cart.svg";
 import iconDecrement from "../../public/assets/images/icon-decrement-quantity.svg";
 import iconIncrement from "../../public/assets/images/icon-increment-quantity.svg";
@@ -9,9 +9,31 @@ interface ProductCardProps {
     product: Product;
 }
 
+export const useIsMobile = () => {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkIfMobile = () => {
+            const userAgent = window.navigator.userAgent;
+            const mobileRegex = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+            setIsMobile(mobileRegex.test(userAgent));
+        };
+
+        checkIfMobile();
+        window.addEventListener('resize', checkIfMobile);
+
+        return () => {
+            window.removeEventListener('resize', checkIfMobile);
+        };
+    }, []);
+
+    return isMobile;
+};
+
 function ProductCard({product}: ProductCardProps) {
     const {cartItems, addToCart, updateQuantity} = useCart();
     const [quantity, setQuantity] = useState(1);
+    const isMobile = useIsMobile();
 
     const isInCart = cartItems.some(item => item.product.id === product.id);
     const cartItem = cartItems.find(item => item.product.id === product.id);
@@ -35,9 +57,15 @@ function ProductCard({product}: ProductCardProps) {
     return (
         <div className="space-y-8">
             <div
-                className={`relative transition-all duration-[60] h-72 bg-cover bg-center rounded-lg ${isInCart ? 'border-3 border-[#C63B12]' : 'border3 border-transparent'}`}
-                style={{backgroundImage: `url('${product.image.desktop}')`}}
+                className={`
+    relative transition-all duration-60 rounded-lg bg-cover bg-center
+    ${isInCart ? 'border-3 border-[#C63B12]' : 'border-3 border-transparent'}`}
             >
+                <img
+                    src={isMobile ? product.image.mobile : product.image.desktop}
+                    alt={product.name}
+                    className="object-cover rounded-lg"
+                />
                 {/* Show when product is not in cart */}
                 {!isInCart && (
                     <button
