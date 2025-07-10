@@ -24,9 +24,10 @@ function App() {
             </div>
           </div>
         </main>
-        <div className="attribution">
-          Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-          Coded by <a href="https://github.com/oziriz31">Yvan Akoo</a>.
+        <div className="text-center">
+          Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend
+          Mentor</a>.
+          Coded by <a href="https://github.com/oziriz31" className="text-amber-950 font-bold">Yvan Akoo</a>.
         </div>
       </CartProvider>
     </ProductProvider>
