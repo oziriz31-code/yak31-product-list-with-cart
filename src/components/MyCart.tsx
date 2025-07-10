@@ -48,6 +48,7 @@ function MyCart() {
               </div>
               <div className="content-center">
                 <button
+                    type="button"
                   onClick={() => removeFromCart(item.product.name)}
                   className="rounded-full transition-all border p-1 cursor-pointer border-[#A88F92] hover:border-[#4C4648]"
                   aria-label={`Remove ${item.product.name} from cart`}
