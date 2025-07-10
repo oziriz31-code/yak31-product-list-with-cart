@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Variable font - modern browsers */
+@font-face {
+    font-family: 'Noto Sans';
+    src: url('../public/assets/fonts/RedHatText-Italic-VariableFont_wght.ttf') format('truetype-variations');
+    src: url('../public/assets/fonts/RedHatText-VariableFont_wght.ttf') format('truetype') /*tech('variations')*/;
+    font-weight: 100 900;
+    font-stretch: 75% 125%; /* Matches wdth axis range */
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --font-sans: "Noto Sans", system-ui, -apple-system, sans-serif;
+    --font-display: var(--font-sans);
+}
+
+@layer base {
+    :root {
+        background: #FCF8F5;
+        @apply text-amber-950;
+    }
+}
+
